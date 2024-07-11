@@ -45,7 +45,7 @@ def tiling(x, y, size, level, mode='straight'):
                 pendown()
                 goto(x+size, y+size)
 
-    # is level isnt 0
+    # so if level isnt 0
     else:
         size /= 2
         level -= 1

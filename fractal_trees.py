@@ -1,0 +1,45 @@
+from turtle import *
+from base_file import theme
+import random
+
+theme(pen_width=1)
+
+# use recursion here so function will call on itself
+
+
+def grow(length, decrease_length, angle_split, noise=0):
+
+   # stop at some point so only if
+    if length > 10:
+
+        width(length/12)
+        forward(length)
+
+        new_length = length * decrease_length
+        if noise > 0:
+            new_length *= random.uniform(0.9, 1.1)
+
+        # add gauss noise to angles
+        angle_left = angle_split + random.gauss(0, noise)
+        angle_right = angle_split + random.gauss(0, noise)
+
+        left(angle_left)
+        grow(new_length, decrease_length, angle_split, noise)
+        right(angle_left)
+
+        right(angle_right)
+        grow(new_length, decrease_length, angle_split, noise)
+        left(angle_right)
+
+        backward(length)
+
+
+penup()
+goto(0, -400)
+pendown()
+left(90)
+grow(150, .8, 30, 10)
+
+
+tracer(True)
+exitonclick()
