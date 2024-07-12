@@ -1,4 +1,5 @@
 from turtle import *
+from base_file import theme
 import random
 
 setup(1000, 1000)
@@ -55,10 +56,9 @@ def tiling(x, y, size, level, mode='straight'):
         tiling(x+size, y-size, size, level, mode)
 
 
-width(3)
-hideturtle()
-tracer(False)
-tiling(0, 0, 400, 3, 'diagonal')
-tracer(True)
+theme(tracer_value=100)
 
+tiling(0, 0, 400, 3, 'diagonal')
+
+tracer(True)
 exitonclick()

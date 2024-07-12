@@ -51,7 +51,7 @@ def draw_patterns():
 
 # Start drawing
 setup_theme(tracer_value=100, turtle_shape='classic')
-euler_curve(3, 1.99, 100000)
+euler_curve(10, 1.99, 100000)
 
 # Additional patterns
 draw_patterns()
