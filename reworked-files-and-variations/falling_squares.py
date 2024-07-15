@@ -2,7 +2,7 @@ from turtle import *
 from base_file import theme
 import random
 
-theme(canvas_width=700, pen_width=1)
+theme(canvas_width=700)
 
 size = 60
 noise = 0.0

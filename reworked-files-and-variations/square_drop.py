@@ -5,16 +5,15 @@ import math
 
 theme(canvas_width=1800, pen_width=2)
 
-size = 30
+size = 35
 noise = 0.0
 
 
-def compute_distance(x, y, horizontal_scale=1.0, vertical_scale=1.2):
-    # compute adjusted distance for oval shape
+def compute_distance(x, y, horizontal_scale=1, vertical_scale=1.2):
     return math.sqrt(x**2 + (y / vertical_scale)**2)
 
 
-max_distance = math.sqrt(800**2 + 400**2)
+max_distance = math.sqrt(400**2 + 400**2)
 
 for y in range(400, -400, -size):
     for x in range(-800, 800, size):
@@ -23,14 +22,12 @@ for y in range(400, -400, -size):
         goto(x, y)
         pendown()
 
-        # compute noise and angle
         distance = compute_distance(x, y)
         noise = (max_distance - distance) / 15
         noise = noise if noise > 15 else 0
         angle = random.uniform(-noise, noise)
         right(angle)
 
-        # draw square
         for _ in range(4):
             forward(size)
             right(90)

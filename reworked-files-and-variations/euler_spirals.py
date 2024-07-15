@@ -23,7 +23,7 @@ euler_curve(2, 1.01, 100000)
 
 theme(tracer_value=100)
 euler_curve(3, 1.99, 100000)
-euler_curve(6, 1.99, 100000)
+
 
 tracer(True)
 exitonclick()

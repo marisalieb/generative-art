@@ -22,6 +22,31 @@ def compute_distance(x, y, horizontal_scale=1.0, vertical_scale=0.7):
     return math.sqrt((x / horizontal_scale)**2 + (y / vertical_scale)**2)
 
 
+def draw_square(x, y, size):
+    # draw a square outline centered at (x, y)
+    penup()
+    goto(x - size / 2, y - size / 2)  # bottom left corner
+    pendown()
+
+    # randomize pen color
+    pencolor(random.random(), random.random(), random.random())
+
+    for _ in range(4):
+        forward(size)
+        right(90)
+
+
+def draw_nested_squares(x, y, size, levels):
+    # recursively draw nested squares
+    draw_square(x, y, size)
+    if levels > 1:
+        offset = size / 2
+        draw_nested_squares(x - offset, y - offset, size / 2, levels - 1)
+        draw_nested_squares(x + offset, y - offset, size / 2, levels - 1)
+        draw_nested_squares(x - offset, y + offset, size / 2, levels - 1)
+        draw_nested_squares(x + offset, y + offset, size / 2, levels - 1)
+
+
 for y in range(400, -400, -size):
     for x in range(-800, 800, size):
         # adjust for smaller oval
@@ -38,26 +63,9 @@ for y in range(400, -400, -size):
         if random.random() > probability:
             continue
 
-        # move to location
-        penup()
-        goto(x, y)
-        pendown()
+        draw_square(x, y, size)
 
-        # rotate only if y is not near top, bottom, or outermost edges
-        if abs(y) < 350 and abs(x) < 770:  # adjust this threshold as needed
-            noise = (max_distance - distance) / 15
-            noise = noise if noise > 15 else 0
-            angle = random.uniform(-noise, noise)
-            right(angle)
-
-        # draw square
-        for _ in range(4):
-            forward(size)
-            right(90)
-
-        # rotate back only if y is not near top, bottom, or outermost edges
-        if abs(y) < 350 and abs(x) < 770:
-            left(angle)
+        draw_nested_squares(x, y, size, levels=2)
 
     # add noise
     noise += 5.0

@@ -1,16 +1,9 @@
 import random
 from turtle import *
+from base_file import theme
 
-# Base theme settings
-
-
-def theme(canvas_width=1200, canvas_height=800, pen_width=3, pen_colour='orange'):
-    setup(width=canvas_width, height=canvas_height)
-    pensize(pen_width)
-    pencolor(pen_colour)
-    bgcolor('green')
-    speed('fastest')
-    tracer(0, 0)
+# variation of the alien alphabet file but with the use of a class
+# and each row of 'letters' has kind of its own shade
 
 
 class GenerativeArt:
@@ -18,24 +11,25 @@ class GenerativeArt:
         self.size = size
         self.max_points = max_points
 
-    def random_color(self):
-        # generate a random base color
+    def random_colour(self):
+        # random base colour
         r = random.random()
         g = random.random()
         b = random.random()
         return r, g, b
 
-    def color_variation(self, base_color, variation_factor=0.1):
-        # create a variation of a base color
-        r, g, b = base_color
+    def colour_variation(self, base_colour, variation_factor=.01):
+        # variation of  base colour
+        r, g, b = base_colour
         r = min(max(r + random.uniform(-variation_factor, variation_factor), 0), 1)
         g = min(max(g + random.uniform(-variation_factor, variation_factor), 0), 1)
         b = min(max(b + random.uniform(-variation_factor, variation_factor), 0), 1)
         return r, g, b
 
-    def draw_shape(self, x, y, points, base_color):
-        # draw a random shape at a given position with a specified number of points and base color
-        pencolor(self.color_variation(base_color, variation_factor=0.3))
+    def draw_shape(self, x, y, points, base_colour):
+        # draw a random shape at given position
+
+        pencolor(self.colour_variation(base_colour, variation_factor=0.2))
 
         # original point
         pointx = x + random.uniform(-self.size / 4, self.size / 4)
@@ -48,32 +42,31 @@ class GenerativeArt:
 
         # draw shape
         for edge in range(points):
-            # random end point
+
             pointx_end = x + random.uniform(-self.size / 4, self.size / 4)
             pointy_end = y + random.uniform(-self.size / 4, self.size / 4)
 
-            # draw connecting line
+            #  connecting line
             goto(pointx_end, pointy_end)
 
-            # reset start for next loop iteration
+            # Reset start
             pointx = pointx_end
             pointy = pointy_end
 
-        # go back to original point
+        # back to original point
         goto(pointx, pointy)
 
     def generate_art(self):
-        # generate the entire artwork
         points = 1
         for y in range(300, -300, -self.size):
-            base_color = self.random_color()
+            base_colour = self.random_colour()  # base colour for each row
             for x in range(-500 + self.size, 500, self.size):
-                self.draw_shape(x, y, points, base_color)
+                self.draw_shape(x, y, points, base_colour)
             points = (points % self.max_points) + 1
 
 
 if __name__ == "__main__":
-    theme()
+    theme(canvas_width=1200, canvas_height=800, pen_width=3)
     art = GenerativeArt(size=80, max_points=10)
     art.generate_art()
     update()

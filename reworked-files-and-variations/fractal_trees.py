@@ -5,7 +5,9 @@ import random
 theme(pen_width=1)
 
 
+# recursively draw branches with decreasing length and random noise
 def grow(length, decrease_length, angle_split, noise=0):
+
     if length > 10:
         width(length / 12)
         forward(length)
@@ -29,16 +31,11 @@ def grow(length, decrease_length, angle_split, noise=0):
 
 
 def main():
-    # Positioning for five trees
-    positions = [(0, 0), (0, 0), (0, 0), (0, 0), (0, 0)]
-
-    for pos in positions:
-        penup()
-        goto(pos)
-        pendown()
-        left(360/5)
-        grow(100, 0.8, 30, 10)
-
+    penup()
+    goto(0, -400)
+    pendown()
+    left(90)
+    grow(150, 0.8, 30, 10)
     tracer(True)
     exitonclick()
 

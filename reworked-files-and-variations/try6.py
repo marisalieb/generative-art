@@ -2,8 +2,6 @@ from turtle import *
 from base_file import theme
 import random
 
-# Helper function to draw a line from (x1, y1) to (x2, y2)
-
 
 def draw_line(x1, y1, x2, y2):
     penup()
@@ -11,47 +9,33 @@ def draw_line(x1, y1, x2, y2):
     pendown()
     goto(x2, y2)
 
-# Helper function to draw a square centered at (x, y) with a given size
-
 
 def draw_square(x, y, size):
     half_size = size / 2
     penup()
     goto(x - half_size, y - half_size)
     pendown()
+
+    shade = random.uniform(0.4, 0.9)  # adjust the range for different shades
+    pencolor(shade, shade, shade)
+    fillcolor("white")
+    begin_fill()
     for _ in range(4):
         forward(size)
         right(90)
-
-# Recursively draws a tiling pattern
+    end_fill()
 
 
 def tiling(x, y, size, level, mode='straight'):
-    """
-    Parameters:
-        x, y - x and y-coord of center of current square
-        size - size of current square.
-        level - current recursion level
-        mode - straight or diagonal mode of drawing 
-    """
 
     if level == 0:
-        # Draw a square at the center of the smallest squares
         draw_square(x, y, size)
 
-        # Draw nested squares similar to draw_grid_with_inner_squares logic
-        for i in range(7):
-            # Random offsets for inner squares
-            x_offset = random.uniform(-5, 5)
-            y_offset = random.uniform(-5, 5)
-            draw_square(x + i * x_offset, y + i * y_offset, size - i * 14)
-
-        # Draw lines based on mode
         if mode == 'straight':
             if random.random() < 0.5:
                 draw_line(x, y - size / 2, x, y + size / 2)  # vertical line
             else:
-                draw_line(x - size / 2, y, x + size / 2, y)  # horizontal line
+                draw_line(x - size / 2, y, x + size / 2, y)  # horizontal
         elif mode == 'diagonal':
             if random.random() < 0.5:
                 draw_line(x - size / 2, y + size / 2, x +
@@ -67,12 +51,10 @@ def tiling(x, y, size, level, mode='straight'):
         tiling(x - new_size, y - new_size, new_size, new_level, mode)
         tiling(x + new_size, y - new_size, new_size, new_level, mode)
 
-# Change parameters in tiling function
-
 
 def main():
-    theme(tracer_value=100)
-    tiling(0, 0, 400, 3, 'diagonal')
+    theme()
+    tiling(0, 0, 400, 4, 'straight')
     tracer(True)
     exitonclick()
 

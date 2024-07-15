@@ -3,7 +3,7 @@ from base_file import theme
 import random
 
 
-# helper function to draw a line from (x1, y1) to (x2, y2)
+# helper function to draw line
 def draw_line(x1, y1, x2, y2):
     penup()
     goto(x1, y1)
@@ -11,7 +11,7 @@ def draw_line(x1, y1, x2, y2):
     goto(x2, y2)
 
 
-# recursively draws a tiling pattern.
+# recursively draws tiling pattern
 def tiling(x, y, size, level, mode='straight'):
     """
     Parameters:
@@ -41,9 +41,9 @@ def tiling(x, y, size, level, mode='straight'):
         tiling(x + new_size, y - new_size, new_size, new_level, mode)
 
 
-# change parameters in tiling function
+# change parameters in tiling function for variations
 def main():
-    theme(tracer_value=100)
+    theme(tracer_value=100, pen_width=4)
     tiling(0, 0, 400, 3, 'diagonal')
     tracer(True)
     exitonclick()

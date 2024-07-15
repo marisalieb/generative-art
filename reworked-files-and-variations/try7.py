@@ -5,7 +5,7 @@ import random
 # Set up the theme
 theme(canvas_width=1200, canvas_height=800, pen_width=3, pen_colour='orange')
 
-size = 80
+size = 40
 points = 1  # how many points connecting
 
 for y in range(300, -300, -size):
@@ -16,16 +16,16 @@ for y in range(300, -300, -size):
 
     for x in range(-500 + size, 500, size):
         # different colours per point
-        prime = random.random()
-        r_point = r * prime
-        g_point = g * prime
-        b_point = b * prime
+        shade = random.random()
+        r_point = r * shade
+        g_point = g * shade
+        b_point = b * shade
 
         pencolor(r_point, g_point, b_point)
 
         # original point
-        pointx = x + random.uniform(-size/4, size/4)
-        pointy = y + random.uniform(-size/4, size/4)
+        pointx = x + random.uniform(-size/10, size/10)
+        pointy = y + random.uniform(-size/10, size/10)
 
         # move to start point
         penup()
@@ -35,8 +35,8 @@ for y in range(300, -300, -size):
         # draw shape
         for _ in range(points):
             # random end point
-            pointx_end = x + random.uniform(-size/4, size/4)
-            pointy_end = y + random.uniform(-size/4, size/4)
+            pointx_end = x + random.uniform(-size/10, size/10)
+            pointy_end = y + random.uniform(-size/10, size/10)
 
             # draw connecting line
             goto(pointx_end, pointy_end)

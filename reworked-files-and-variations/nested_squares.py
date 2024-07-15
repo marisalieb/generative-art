@@ -4,8 +4,7 @@ import random
 
 
 def draw_square(x, y, size):
-
-    # draw a square centered at x, y with the given size
+    # draw a square centered at x, y with given size
     penup()
     goto(x - size / 2, y - size / 2)
     pendown()
@@ -15,7 +14,7 @@ def draw_square(x, y, size):
 
 
 # draw a grid of squares with inner squares that are randomly offset
-def draw_grid_with_inner_squares(size_outer=100, noise=5, shrink_inner=14):
+def draw_grid_with_inner_squares(size_outer=200, noise=5, shrink_inner=14):
 
     # calculate the range of x, y coords for grid
     x_range = range(-500 + size_outer // 2, 500, size_outer)
@@ -45,9 +44,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    # test square:
-    # theme()
-    # draw_square(50,  50, 200)
-    # tracer(True)
-    # exitonclick()
