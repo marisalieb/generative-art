@@ -2,6 +2,7 @@
 
 a collection of generative art using turtle module, the most recent project files are al in the reworked files and variations dir and all use the same setup file, I've kept the older, more chaotic files separtely
 # 
+### Example images:
 ![alt text](<images/gen art pics.png>)
 
 ### Theses are the basic project files:
