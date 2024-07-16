@@ -1,6 +1,8 @@
 # Generative Art
 
 a collection of generative art using turtle module, the most recent project files are al in the reworked files and variations dir and all use the same setup file, I've kept the older, more chaotic files separtely
+# 
+![alt text](<images/gen art pics.png>)
 
 ### Theses are the basic project files:
 1. basic tiling 
@@ -22,7 +24,6 @@ a collection of generative art using turtle module, the most recent project file
 15. rainbow squares
 16. double rainbow squares
 
-
 # 
 
 ### keep working on:
@@ -30,3 +31,5 @@ a collection of generative art using turtle module, the most recent project file
 - and try6 and try7
 - abstract squares
 - spirals in colour, esp the draw patterns functions
+
+
