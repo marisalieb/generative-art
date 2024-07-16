@@ -12,7 +12,6 @@ class GenerativeArt:
         self.max_points = max_points
 
     def random_colour(self):
-        # random base colour
         r = random.random()
         g = random.random()
         b = random.random()
@@ -27,7 +26,6 @@ class GenerativeArt:
         return r, g, b
 
     def draw_shape(self, x, y, points, base_colour):
-        # draw a random shape at given position
 
         pencolor(self.colour_variation(base_colour, variation_factor=0.2))
 
@@ -49,7 +47,7 @@ class GenerativeArt:
             #  connecting line
             goto(pointx_end, pointy_end)
 
-            # Reset start
+            # rreset start
             pointx = pointx_end
             pointy = pointy_end
 

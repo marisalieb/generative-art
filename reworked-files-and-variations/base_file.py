@@ -5,8 +5,8 @@ from turtle import *
 
 def theme(canvas_width=1000,
           canvas_height=1000,
-          canvas_colour=(224/255, 224/255, 224/255),
-          pen_colour=(130/255, 110/255, 100/255),
+          canvas_colour=(40/255, 40/255, 40/255),
+          pen_colour=(70/255, 70/255, 70/255),
           pen_width=2,
           pen_speed=0,  # (0 is fastest)
           tracer_value=False,  # if False, drawing will be animated
@@ -30,6 +30,7 @@ def theme(canvas_width=1000,
 # light blue (153/255, 204/255, 255/255)
 # pink (255/255, 102/255, 178/255)
 # dark grey (70/255, 70/255, 70/255)
+# dark dark grey (40/255, 40/255, 40/255)
 # light grey (224/255, 224/255, 224/255)
 # dark beige (130/255, 110/255, 100/255)
 # bright purple (100/255, 50/255, 100/255)

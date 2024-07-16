@@ -9,14 +9,15 @@ size = 35
 noise = 0.0
 
 
-def compute_distance(x, y, horizontal_scale=1, vertical_scale=1.2):
-    return math.sqrt(x**2 + (y / vertical_scale)**2)
+def compute_distance(x, y, horizontal_scale=1.5, vertical_scale=.9):
+    return math.sqrt((x/horizontal_scale)**2 + (y / vertical_scale)**2)
 
 
-max_distance = math.sqrt(400**2 + 400**2)
+max_distance = math.sqrt(200**2 + 600**2)
 
 for y in range(400, -400, -size):
     for x in range(-800, 800, size):
+
         # move to location
         penup()
         goto(x, y)
