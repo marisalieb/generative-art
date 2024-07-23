@@ -1,12 +1,8 @@
 ## Generative Art
 
-A collection of generative art using the turtle module
+Each file runs on its own (only using the base file for the theme setup) and produces an image and each image is unique. Explore the images folder to see more results.
 
-The most recent project files are all in the reworked-files-and-variations dir and all use the same setup file; I've kept the older, more chaotic files separtely 
-
-Each file runs on its own (only using the base file for the theme setup) and produces an image, each image is unique
-
-# 
+#
 ### Example images:
 ![alt text](<images/gen art pics.png>)
 
@@ -33,10 +29,13 @@ Each file runs on its own (only using the base file for the theme setup) and pro
 
 # 
 
-### Keep working on:
+### Currently working on:
 - squares and tiling so theres nested squres in the tiles
 - try6 and try7
 - abstract squares
 - spirals in colour, esp the draw patterns functions
 
+#
+All are using the turtle module.
+The most recent project files are all in the reworked-files-and-variations dir and all use the same setup file; I've kept the older, more chaotic files separtely 
 
